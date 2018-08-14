@@ -2,8 +2,4 @@
     <string name="app_name">ASF Certificate</string>
     <string name="scenario">The traffic light turns red and, to your frustration, a family member
         sitting next to you turns the radio up really high. How do you respond?</string>
-    <string name="choice1">1) Keeping in mind the need of a quick resolution of any distractions,
-        turn the radio down and let them know the danger of distracting the driver.</string>
-    <string name="choice2">2) Politely ask them to turn the radio down, because of the importance
-    of keeping the eyes on the road.</string>
 </resources>
