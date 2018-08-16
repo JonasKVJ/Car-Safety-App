@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">ASF Certificate</string>
-    <string name="scenario">The traffic light turns red and, to your frustration, a family member
-        sitting next to you turns the radio up really high. How do you respond?</string>
+    <string name="scenario">While driving, you receive a phone call, and you are currently
+        expecting an important call from your boss. How do you respond?</string>
+    <string name="choice1">1) Considering the consequences of not answering an important call,
+        you decide there is no choice but to answer</string>
+    <string name="choice2">2) Realizing the error in not muting the phone before starting the
+        car, ignore the phone call and make a mental note for next time</string>
+    <string name="choice3">3) Although the situation is distracting, you ignore the call as best as
+        possible and try to concentrate on driving</string>
+    <string name="choice4">4) You decide to answer, thinking that as long as you keep your eyes on
+        the road, you can still drive safely</string>
+    <string name="random">Random</string>
+    <string name="count">Count</string>
+    <string name="toast">Toast</string>
+
 </resources>
