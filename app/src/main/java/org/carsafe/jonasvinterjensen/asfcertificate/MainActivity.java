@@ -37,6 +37,6 @@ public class MainActivity extends AppCompatActivity
         TextView textview = (TextView) view;
         selectedTextView = textview.getText().toString();
         //This will work in an OnlickListener, using a RecyclerView
-        System.out.println("\tSelected textView: \t" + selectedTextView);
+        System.out.println("\tSelected textView: \t" + selectedTextView + "new commit");
     }
 }
