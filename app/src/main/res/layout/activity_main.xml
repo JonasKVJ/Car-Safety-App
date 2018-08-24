@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/screenBackground"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/scenario"
@@ -25,15 +24,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
+    <Button
         android:id="@+id/Answer1"
+        style="@style/TextColor"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:background="@color/textViewBackground"
+        android:gravity="left"
         android:onClick="answer1_OnClick"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="@string/choice1"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:textSize="16sp"
@@ -42,35 +44,45 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432"
-        style="@style/TextColor" />
+        app:layout_constraintVertical_bias="0.359" />
 
-    <TextView
+    <Button
         android:id="@+id/Answer2"
+        style="@style/TextColor"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/textViewBackground"
+        android:gravity="left"
+        android:onClick="answer1_OnClick"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="@string/choice2"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Answer3"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintTop_toBottomOf="@+id/Answer1" />
 
-    <TextView
+    <Button
         android:id="@+id/Answer3"
+        style="@style/TextColor"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/textViewBackground"
+        android:gravity="left"
+        android:onClick="answer1_OnClick"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="@string/choice3"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:textSize="16sp"
@@ -78,9 +90,8 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749"
-        style="@style/TextColor" />
+        app:layout_constraintTop_toTopOf="@+id/Question"
+        app:layout_constraintVertical_bias="0.689" />
 
     <Button
         android:id="@+id/toast_button"

@@ -34,9 +34,24 @@ public class MainActivity extends AppCompatActivity
         //Create an Intent object, which is required for a new activity
         Intent answerIntent = new Intent(this, Q1_Feedback.class);
         startActivity(answerIntent);
-        TextView textview = (TextView) view;
-        selectedTextView = textview.getText().toString();
-        //This will work in an OnlickListener, using a RecyclerView
-        System.out.println("\tSelected textView: \t" + selectedTextView + "new commit");
+
+        String viewID = getResources().getResourceName(view.getId());
+        if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer1") )
+        {
+            choice=1;
+        }
+        else if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer2") )
+        {
+            choice=2;
+        }
+        else if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer3") )
+        {
+            choice=3;
+        }
+
+        if(choice!=-1)
+        {
+            System.out.println("\tChoice is: + " + choice);
+        }
     }
 }
