@@ -20,6 +20,7 @@ public class Q1_Feedback extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         try
         {
+            //Android Studio warning: getInt() might throw NullPointerException
             choice = bundle.getInt("selectedAnswer");
         }
         catch(NullPointerException e)
@@ -34,15 +35,15 @@ public class Q1_Feedback extends AppCompatActivity {
 
         TextView choiceView = findViewById(R.id.Answer);
 
-        if(choice==1)
+        if(choice == 1)
         {
             choiceView.setText(R.string.answer1);
         }
-        else if(choice==2)
+        else if(choice == 2)
         {
             choiceView.setText(R.string.answer2);
         }
-        else if(choice==3)
+        else if(choice == 3)
         {
             choiceView.setText(R.string.answer3);
         }

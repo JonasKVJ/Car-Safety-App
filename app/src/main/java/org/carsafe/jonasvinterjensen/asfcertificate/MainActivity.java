@@ -55,4 +55,9 @@ public class MainActivity extends AppCompatActivity
 
         startActivity(answerIntent);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
