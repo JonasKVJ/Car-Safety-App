@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">ASF Certificate</string>
+
+    <string name="answer1">While the consequences may be severe, at this point they may be
+    unavoidable if safe driving needs to be ensured. The best thing would likely be to
+    preemptively accomodate for the situation, while keeping the phone turned off.</string>
+    <string name="answer2">This would appear to be the best response, since it is rooted
+    in the belief that attention must not be diverted from driving in any possible way.</string>
+    <string name="answer3">While the response is correct given the situation, the real
+    error lies in not having turnt the phone off before starting the car.</string>
+
     <string name="scenario">While driving, you receive a phone call, and you are currently
         expecting an important call from your boss. How do you respond?</string>
     <string name="choice1">1) Considering the consequences of not answering an important call,
@@ -10,9 +19,11 @@
         possible and try to concentrate on driving</string>
     <string name="choice4">4) You decide to answer, thinking that as long as you keep your eyes on
         the road, you can still drive safely</string>
+
     <string name="random">Random</string>
     <string name="count">Count</string>
     <string name="toast">Toast</string>
     <string name="q1feedback_title">Answer</string>
+
 
 </resources>

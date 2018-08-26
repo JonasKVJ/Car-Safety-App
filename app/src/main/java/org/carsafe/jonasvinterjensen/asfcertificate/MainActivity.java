@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
-    public int choice = -1;
+    public int choice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,25 +33,26 @@ public class MainActivity extends AppCompatActivity
 
         //Create an Intent object, which is required for a new activity
         Intent answerIntent = new Intent(this, Q1_Feedback.class);
-        startActivity(answerIntent);
-
         String viewID = getResources().getResourceName(view.getId());
         if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer1") )
         {
-            choice=1;
+            choice = 1;
         }
         else if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer2") )
         {
-            choice=2;
+            choice = 2;
         }
         else if(viewID.equals("org.carsafe.jonasvinterjensen.asfcertificate:id/Answer3") )
         {
-            choice=3;
+            choice = 3;
         }
 
-        if(choice!=-1)
+        if(choice != 0)
         {
-            System.out.println("\tChoice is: + " + choice);
+            answerIntent.putExtra("selectedAnswer", choice);
         }
+
+
+        startActivity(answerIntent);
     }
 }
