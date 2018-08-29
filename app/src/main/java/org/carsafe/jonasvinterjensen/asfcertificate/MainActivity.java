@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
     //private CountDownTimer questionTimer;
     private int countDownIntervalSec = 1;
     private int timerLengthSec = 30;
+    CountDownTimer QuestionTimer;
     public int choice = 0;
 
 
@@ -27,32 +28,28 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //startTimer();
+        //Start 30-second question timer
+        startTimer(timerLengthSec*1000, countDownIntervalSec*1000);
     }
 
-    //Start timer
-    /*void startTimer()
+    private void startTimer(int durationMilliSec, int CountDownIntervalMilliSec)
     {
-        TextView timerView = findViewById(R.id.Timer);
 
-        CountDownTimer questionTimer = new CountDownTimer(timerLengthSec*1000, countDownIntervalSec*1000)
+        QuestionTimer = new CountDownTimer(durationMilliSec, CountDownIntervalMilliSec)
         {
-            //Called on every CountDownInterval, once per second
-            @Override
+            TextView timerView = findViewById(R.id.Timer);
             public void onTick(long remainingMilliSec)
             {
-                int remainingSec = (int) remainingMilliSec/1000;
+                String remainingSec = Long.toString(remainingMilliSec/1000);
                 timerView.setText(remainingSec);
             }
 
-            @Override
             public void onFinish()
             {
-                timerView.setText("Done!");
+                timerView.setText("0");
             }
-        };
-        questionTimer.start();
-    }*/
+        }.start();
+    }
 
     public void toastOnClick(View view)
     {
@@ -95,4 +92,15 @@ public class MainActivity extends AppCompatActivity
         startActivity(answerIntent);
     }
 
+    protected void onStop()
+    {
+        super.onStop();
+        QuestionTimer.cancel();
+    }
+
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        QuestionTimer.cancel();
+    }
 }
