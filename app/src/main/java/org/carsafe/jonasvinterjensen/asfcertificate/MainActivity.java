@@ -3,6 +3,7 @@ package org.carsafe.jonasvinterjensen.asfcertificate;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.support.v4.graphics.TypefaceCompatUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,8 +19,8 @@ public class MainActivity extends AppCompatActivity
     //The countdown timer for each question, which will last 30 seconds
     //private CountDownTimer questionTimer;
     private int countDownIntervalSec = 1;
-    private int timerLengthSec = 30;
-    CountDownTimer QuestionTimer;
+    private int timerLengthSec = 31; //For some reason, 31 starts at 30
+    CountDownTimer QuestionTimer = null;
     public int choice = 0;
 
 
@@ -27,28 +28,35 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        //Give the user a second to notice the timer
+        SystemClock.sleep(1000);
         //Start 30-second question timer
         startTimer(timerLengthSec*1000, countDownIntervalSec*1000);
     }
 
-    private void startTimer(int durationMilliSec, int CountDownIntervalMilliSec)
+    protected void onPause()
     {
+        super.onPause();
+        cancelTimer();
+    }
 
-        QuestionTimer = new CountDownTimer(durationMilliSec, CountDownIntervalMilliSec)
-        {
-            TextView timerView = findViewById(R.id.Timer);
-            public void onTick(long remainingMilliSec)
-            {
-                String remainingSec = Long.toString(remainingMilliSec/1000);
-                timerView.setText(remainingSec);
-            }
+    protected void onStop()
+    {
+        super.onStop();
+        cancelTimer();
+    }
 
-            public void onFinish()
-            {
-                timerView.setText("0");
-            }
-        }.start();
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        cancelTimer();
     }
 
     public void toastOnClick(View view)
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity
         myToast.show();
     }
 
+    //Call this when a multiple choice answer button is clicked
     public void answer_OnClick(View view)
     {
         //Create an Intent object, in order to start the new activity
@@ -92,15 +101,38 @@ public class MainActivity extends AppCompatActivity
         startActivity(answerIntent);
     }
 
-    protected void onStop()
+    private void cancelTimer()
     {
-        super.onStop();
-        QuestionTimer.cancel();
+        if(QuestionTimer != null)
+        {
+            QuestionTimer.cancel();
+        }
     }
 
-    protected void onDestroy()
+    private void timeRanOut()
     {
-        super.onDestroy();
-        QuestionTimer.cancel();
+        //Create an Intent object, in order to start the new activity
+        Intent answerIntent = new Intent(this, Q1_Feedback.class);
+        startActivity(answerIntent);
+    }
+
+    private void startTimer(int durationMilliSec, int CountDownIntervalMilliSec)
+    {
+
+        QuestionTimer = new CountDownTimer(durationMilliSec, CountDownIntervalMilliSec)
+        {
+            TextView timerView = findViewById(R.id.Timer);
+            public void onTick(long remainingMilliSec)
+            {
+                String remainingSec = Long.toString(remainingMilliSec/1000);
+                timerView.setText(remainingSec);
+            }
+
+            public void onFinish()
+            {
+                //Failed to answer within the time limit, which counts as a wrong answer
+                timeRanOut();
+            }
+        }.start();
     }
 }

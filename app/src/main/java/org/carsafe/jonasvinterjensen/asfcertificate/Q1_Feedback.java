@@ -9,7 +9,9 @@ import android.widget.Toast;
 
 public class Q1_Feedback extends AppCompatActivity {
 
-    public int choice = 0;
+    protected int choice = 0;
+    protected boolean timerRanOut = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,28 +27,31 @@ public class Q1_Feedback extends AppCompatActivity {
         }
         catch(NullPointerException e)
         {
-            System.err.println("Caught NullPointerException" + e.getMessage());
-            Toast myToast = Toast.makeText(this, "NullPointerException!",
-                    Toast.LENGTH_SHORT);
-            myToast.show();
-            finish();
+            timerRanOut = true;
         }
-
 
         TextView choiceView = findViewById(R.id.Answer);
+        //Feedback will be given based on the answer, iff the user answered before the timer ran out
+        if(!timerRanOut)
+        {
+            if(choice == 1)
+            {
+                choiceView.setText(R.string.answer1);
+            }
+            else if(choice == 2)
+            {
+                choiceView.setText(R.string.answer2);
+            }
+            else if(choice == 3)
+            {
+                choiceView.setText(R.string.answer3);
+            }
+        }
+        else
+        {
+            choiceView.setText(R.string.timeRanOut);
+        }
 
-        if(choice == 1)
-        {
-            choiceView.setText(R.string.answer1);
-        }
-        else if(choice == 2)
-        {
-            choiceView.setText(R.string.answer2);
-        }
-        else if(choice == 3)
-        {
-            choiceView.setText(R.string.answer3);
-        }
     }
 
     public void backOnClick(View view)

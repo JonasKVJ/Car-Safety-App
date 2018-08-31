@@ -17,6 +17,9 @@
     <string name="choice3">3) Although the situation is distracting, you ignore the call as best as
         possible and try to concentrate on driving</string>
 
+    <string name="timeRanOut">Since a distracted driver is a dangerous driver, turning the phone off
+        before starting the car would definitely be the safest.</string>
+
     <string name="random">Submit</string>
     <string name="count">Count</string>
     <string name="toast">Toast</string>
