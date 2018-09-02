@@ -7,5 +7,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="screenBackground">#FFFFFF</color>
     <color name="buttonBackground">#bbbcbb</color>
-    <color name="textViewBackground">#a4c639</color>
+    <color name="textViewBackground">#bbbcbb</color>
 </resources>
